@@ -1,0 +1,29 @@
+<div>
+  <%= flash[:notice] %>
+</div>
+<div>
+  <%= flash[:alert] %>
+</div>
+<content>
+    <div1>
+    <%= form_with model: @post_content, url: post_content_path(@post_content.id), method: :patch do |f| %>
+<h2>タイトル</h2>
+<p><%= @post_content.title %></p>
+
+<h2>本文</h2>
+<p><%= @post_content.caption %></p>
+
+<h2>ユーザーネーム</h2>
+ <p><%= @post_content.user.name %></p>
+   <li>
+    <%= link_to "編集", edit_post_content_path(@post_content) %>
+   </li>
+<% end %>
+  </div1>
+</content>
+
+ <%= form_with model: @post_content, url: post_content_path(@post_content.id), method: :patch do |f| %>
+<li>
+    <%= link_to "一覧へ戻る", post_contents_path(@post_content.id) %>
+</li>
+<% end %>

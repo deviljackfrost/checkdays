@@ -1,0 +1,17 @@
+<content>
+    <div1>
+<div>
+  <%= flash[:notice] %>
+</div>
+
+<h2>名前</h2>
+<p><%= @user.name %></p>
+
+<h2>メールアドレス</h2>
+<p><%= @user.email %></p>
+
+   <li>
+    <%= link_to "編集", edit_users_content_path(@user) %>
+   </li>
+  </div1>
+</content>

@@ -1,0 +1,22 @@
+<div>
+  <%= flash[:alert] %>
+</div>
+
+<h1>ユーザー編集</h1>
+
+<%= form_with model: @user, url: users_content_path(@user.id), method: :patch do |f| %>
+
+  <h4>名前</h4>
+  <%= f.text_field :name %>
+  
+  <h4>パスワード</h4>
+  <%= f.text_field :encrypted_password %>
+  
+    <h4>メールアドレス</h4>
+  <%= f.text_field :email %>
+  
+  <%= f.submit '保存' %>
+  
+   <%= link_to "ユーザー退去", users_content_path, method: :delete %>
+  
+<% end %>

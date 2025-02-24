@@ -1,0 +1,32 @@
+<% @post_content.each do |post_content| %>
+  <% if post_content.errors.any? %>
+    <%= post_content.errors.count %>件のエラーが発生しました
+    <ul>
+      <% post_content.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>
+
+<div>
+  <%= flash[:notice] %>
+</div>
+
+<content>
+<h1>投稿一覧</h1>
+<% @post_content.each do |post_content| %>
+  <div1>
+    <p>ユーザーネーム：<%= post_content.user.name %></p>
+    <p>タイトル：<%= post_content.title %></p>
+    <p>本文：<%= post_content.caption %></p>
+    
+   <% if post_content.user == current_user %>
+   
+   <%= link_to "編集", post_content_path(post_content.id) %>
+   <%= link_to "削除", post_content_path(post_content), method: :delete %>
+    <% end %>
+    
+  </div1>
+<% end %>
+  </content>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Checkdays</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+      <header>
+    <% if user_signed_in? %>
+      <li>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      </li>
+       <li>
+    <%= link_to '投稿', new_post_content_path %>
+       </li>
+        <li>
+    <%= link_to '投稿一覧', post_contents_path %>
+       </li>
+        <li>
+    <%= link_to 'ユーザー編集', users_content_path(current_user) %>
+       </li>
+    <% else %>
+      <li>
+        <%= link_to "新規登録", new_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to "ログイン", new_user_session_path %>
+      </li>
+      <li>
+        <%= link_to "ゲストログイン", post_contents_path %>
+      </li>
+    <% end %>
+  </header>
+    <%= yield %>
+  </body>
+</html>

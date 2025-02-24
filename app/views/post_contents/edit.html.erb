@@ -1,0 +1,17 @@
+<div>
+  <%= flash[:notice] %>
+</div>
+
+<h1>投稿編集</h1>
+
+<%= form_with model: @post_content, url: post_content_path(@post_content.id), method: :patch do |f| %>
+
+  <h4>タイトル</h4>
+  <%= f.text_field :title %>
+  
+  <h4>本文</h4>
+  <%= f.text_field :caption %>
+  
+  <%= f.submit '保存' %>
+  
+<% end %>
