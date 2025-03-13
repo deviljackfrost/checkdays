@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :admins
 resources :users_content, only: [:mypage, :show, :create, :edit, :update, :destroy]
 resources :post_contents
   devise_for :users
