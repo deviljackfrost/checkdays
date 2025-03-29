@@ -12,9 +12,10 @@ class UsersContentController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:id])
+    if @user = User.find(params[:id])
     @user.update(user_params)
     redirect_to users_content_path(@user)
+    end
   end
 
   def edit
@@ -33,6 +34,8 @@ class UsersContentController < ApplicationController
   end
 
   def destroy
+    user = User.find(params[:id])
+    user.delete
     sign_out(current_user)
     redirect_to new_user_session_path
   end

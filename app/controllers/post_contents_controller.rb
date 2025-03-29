@@ -20,7 +20,7 @@ class PostContentsController < ApplicationController
   if @post_content.save
     redirect_to post_contents_path, notice: "投稿しました"
   else
-    flash[:alert] = "投稿できませんでした　入れ直してください"
+    flash[:alert] = "投稿できませんでした入れ直してください"
     render :new
   end
   end
