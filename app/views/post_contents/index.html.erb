@@ -1,4 +1,16 @@
 
+<% @post_content.each do |post_content| %>
+  <% if post_content.errors.any? %>
+    <%= post_content.errors.count %>件のエラーが発生しました
+    <ul>
+      <% post_content.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>
+
+
 
 
 <content>
@@ -16,7 +28,7 @@
 <% end %>
 
 
-<% @search.each do |post_content| %>
+<% @post_content.each do |post_content| %>
   <div1>
     <p>ユーザー：<%= post_content.user&.name || "このユーザーは退会されました" %></p>
     <p>タイトル：<%= post_content.title %></p>
@@ -30,4 +42,6 @@
     
   </div1>
 <% end %>
+<div2>
+</div2>
   </content>
