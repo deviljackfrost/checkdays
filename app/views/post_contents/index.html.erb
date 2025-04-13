@@ -1,20 +1,22 @@
 
-<% @post_content.each do |post_content| %>
-  <% if post_content.errors.any? %>
-    <%= post_content.errors.count %>件のエラーが発生しました
-    <ul>
-      <% post_content.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
+
+
+<content>
+  <h1>投稿一覧</h1>
+
+<% if user_signed_in? %>
+<%= search_form_for @q do |f| %>
+  <%= f.label :title_or_caption_cont, 'title or caption' %>
+  <%= f.search_field :title_or_caption_cont, class: "form-control" %>
+
+  <%= f.submit "検索" %>
+
+  <%= link_to '一覧を出す', post_contents_path %>
   <% end %>
 <% end %>
 
 
-
-<content>
-<h1>投稿一覧</h1>
-<% @post_content.each do |post_content| %>
+<% @search.each do |post_content| %>
   <div1>
     <p>ユーザー：<%= post_content.user&.name || "このユーザーは退会されました" %></p>
     <p>タイトル：<%= post_content.title %></p>

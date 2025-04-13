@@ -3,9 +3,14 @@ class PostContentsController < ApplicationController
     @post_content = PostContent.new
   end
 
-  def index
-    @post_content = PostContent.all
-  end
+def index
+  @q = PostContent.ransack(params[:q])
+  @search = @q.result(distinct: true)
+end
+  
+def search
+  @post_content= PostContent.search(params[:keyword])
+end
 
   def show
     @post_content = PostContent.find(params[:id])
@@ -49,4 +54,7 @@ def post_content_params
   params.require(:post_content).permit(:title, :caption, :content)
 end
 
+def post_content_params
+  params.require(:q).permit(:content, :title, :caption)
+end
 end

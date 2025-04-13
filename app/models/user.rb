@@ -11,4 +11,12 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :name, presence: true
   validates :encrypted_password, presence: true
+  
+  def self.looks(search, word)
+    if search == "partial_match"
+      @user = User.where("name LIKE?","%#{word}%")
+    else
+      @user = User.all
+    end
+  end
 end
