@@ -1,24 +1,34 @@
-# README
+# チェックデイズ
+## サイト概要
+### サイトテーマ
+仕事のスケジュールやプライベートの予定を共有したい時に最適なコミュニティサイト
+​
+### テーマを選んだ理由
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+仕事の際にどうしても仕事中にトラブルや進行状況が芳しくない状態が多々あります。この問題発生により自分だけでなく他の従業員や社員の方にも少なからず今後の仕事内容に影響が出てしまうこともあります。その結果、問題解決のためにスケジュールの変更が必要とされます。
+そんな時に各従業員や社員の仕事の進捗状態の確認をするもしくは作業内容の詳細が不明もしくは進捗が芳しいと思われる方を確認するのに必要だと思います。そこで各員の仕事情報を確認する及び進行状況によるスケジュール内容の変更をするためのコミュニティサイトが必要であると考えました。
+またこういったサイトは仕事だけでなくプライベート内で何かをする際に指標とすることもできる考え、このテーマにしました。
 
-Things you may want to cover:
+​
+### ターゲットユーザ
 
-* Ruby version
+仕事での中間管理職に属する、もしくはそれより地位の高い管理者の立場である
+現場の社員や部下を持っていそうな人
 
-* System dependencies
+​
+### 主な利用シーン
+仕事及びプライベートの内容を確認する時
+もしくは変更をする様な時
+​
+## 設計書
+後ほど作成予定
+​
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
+​
+## 使用素材
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

@@ -17,6 +17,6 @@
   
   <%= f.submit '保存' %>
   
-   <%= link_to "ユーザー退去", users_content_path, method: :delete %>
+   <%= link_to "ユーザー退去", users_content_path, method: :delete, data: { confirm: "削除しますか？" } %>
   
 <% end %>

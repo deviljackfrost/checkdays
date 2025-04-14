@@ -3,10 +3,12 @@ class PostContentsController < ApplicationController
     @post_content = PostContent.new
   end
 
-  def index
-    @post_content = PostContent.all
-  end
-
+def index
+  @post_content = PostContent.page(params[:page])
+  @q = PostContent.ransack(params[:q])
+  @post_content = @q.result
+end
+  
   def show
     @post_content = PostContent.find(params[:id])
   end
@@ -20,7 +22,7 @@ class PostContentsController < ApplicationController
   if @post_content.save
     redirect_to post_contents_path, notice: "投稿しました"
   else
-    flash[:alert] = "投稿できませんでした　入れ直してください"
+    flash[:alert] = "投稿できませんでした入れ直してください"
     render :new
   end
   end
