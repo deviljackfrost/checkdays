@@ -36,12 +36,11 @@
     
    <% if post_content.user == current_user %>
    
+   <p><%= link_to "#{post_content.post_comments.count} コメント", post_content_path(post_content.id) %></p>
    <%= link_to "編集", post_content_path(post_content.id) %>
    <%= link_to "削除", post_content_path(post_content), method: :delete %>
     <% end %>
     
   </div1>
 <% end %>
-<div2>
-</div2>
   </content>

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 resources :users_content, only: [:mypage, :show, :create, :edit, :update, :destroy]
-resources :post_contents
+resources :post_contents do
+resources :post_comments
+end
   devise_for :admins
   devise_for :users
   root to: "homes#top"

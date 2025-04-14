@@ -4,13 +4,14 @@ class PostContentsController < ApplicationController
   end
 
 def index
-  @post_content = PostContent.page(params[:page])
+  @post_contents = PostContent.page(params[:page])
   @q = PostContent.ransack(params[:q])
   @post_content = @q.result
 end
   
   def show
     @post_content = PostContent.find(params[:id])
+    @post_comment = PostComment.new
   end
   
   def create

@@ -13,5 +13,6 @@
    <li>
     <%= link_to "編集", edit_users_content_path(@user) %>
    </li>
+    <p><%= link_to "#{post_content.post_comments.count} コメント", post_content_path(post_content.id) %></p>
   </div1>
 </content>
