@@ -1,4 +1,4 @@
-class PostCommentsController < ApplicationController
+class Public::PostCommentsController < ApplicationController
 
  def create
     post_content = PostContent.find(params[:post_content_id])

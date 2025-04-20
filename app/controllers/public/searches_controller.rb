@@ -1,4 +1,4 @@
-class SearchesController < ApplicationController
+class Public::SearchesController < ApplicationController
  def search
  @q = PostContent.ransack(params[:q])
   @boards = @q.result(distinct: true).includes(:user).page(params[:page]).order("created_at desc")

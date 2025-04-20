@@ -1,4 +1,4 @@
-class PostContentsController < ApplicationController
+class Public::PostContentsController < ApplicationController
   def new
     @post_content = PostContent.new
   end

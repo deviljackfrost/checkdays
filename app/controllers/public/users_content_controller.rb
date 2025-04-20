@@ -1,4 +1,4 @@
-class UsersContentController < ApplicationController
+class Public::UsersContentController < ApplicationController
   def new
      @user = current_user
   end

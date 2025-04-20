@@ -292,7 +292,6 @@ DEPENDENCIES
   kaminari
   listen (~> 3.3)
   mysql2
-  net-imap
   net-pop
   net-smtp
   pry-byebug
