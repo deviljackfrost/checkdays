@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+ 
 scope module: :public do
+   devise_for :users
     root to: "homes#top"
   get 'homes/about'
   get "search" => "searches#search"
@@ -12,7 +13,6 @@ end
     sessions: 'admin/sessions'
   }
   
-
  end
  
   namespace :admin do

@@ -39,11 +39,6 @@ PostContent.find_or_create_by!(title: "ShoreditchBar") do |post_image|
   post_image.user = lucas
 end
 
-20.times do |n|
-  Book.create!(
-    title: Faker::Book.title,
-    author: Faker::Name.name,
-  )
-end
+
 
 puts "seedの実行が完了しました"
