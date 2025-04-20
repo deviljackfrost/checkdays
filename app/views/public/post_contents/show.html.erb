@@ -19,7 +19,9 @@
   </div1>
 </content>
 
-<div>
+
+
+<div class = "comment" >
   <p>コメント件数：<%= @post_content.post_comments.count %></p>
   <% @post_content.post_comments.each do |post_comment| %>
    <br>
@@ -28,6 +30,7 @@
     <%= post_comment.created_at.strftime('%Y/%m/%d') %>
       <br>
     <%= post_comment.comment %>
+      <br>
   <% end %>
 </div>
     <br>
