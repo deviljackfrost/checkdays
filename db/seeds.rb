@@ -39,4 +39,6 @@ PostContent.find_or_create_by!(title: "ShoreditchBar") do |post_image|
   post_image.user = lucas
 end
 
+
+
 puts "seedの実行が完了しました"
