@@ -1,8 +1,8 @@
 class PostContent < ApplicationRecord
   belongs_to :user
+  has_many :post_comments, dependent: :destroy
  validates :title, presence: true
  validates :caption, presence: true
- validates :content, presence: true
   validate :both_fields_not_blank
   
   def self.ransackable_associations(auth_object = nil)

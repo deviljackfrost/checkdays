@@ -10,8 +10,9 @@
 <h2>メールアドレス</h2>
 <p><%= @user.email %></p>
 
-   <li>
+   
     <%= link_to "編集", edit_users_content_path(@user) %>
-   </li>
   </div1>
+  コメント数 <%=  @user.post_comments.count %>
+ 
 </content>
