@@ -1,9 +1,6 @@
 
-<div>
-  <%= flash[:alert] %>
-</div>
+
 <content>
-    <div1>
     <%= form_with model: @post_content, url: post_content_path(@post_content.id), method: :patch do |f| %>
 <h2>タイトル</h2>
 <p><%= @post_content.title %></p>
@@ -16,7 +13,6 @@
     <%= link_to "編集", edit_post_content_path(@post_content) %>
    <%= link_to "削除", post_content_path(@post_content), method: :delete %>
 <% end %>
-  </div1>
 </content>
 
 

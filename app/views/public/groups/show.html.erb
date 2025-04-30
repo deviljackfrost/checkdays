@@ -1,0 +1,39 @@
+<div>
+  <%= flash[:notice] %>
+  <%= flash[:alert] %>
+</div>
+
+<tr>
+  <group>
+  <td><%= @group.name %></td>
+  <br>
+  <br>
+  <td><%= @group.introduction %></td>
+  
+    <br>
+ <% if current_user.present? %>
+  <td>
+    <% if @group.users.include?(current_user) %>
+      <%= "既にこのグループに参加しています" %>
+      <br>
+       <td><%= @group.users.count %></td>
+    <%= link_to 'グループを抜ける', leave_group_path(@group), method: :post, data: { confirm: '本当にグループを抜けますか？' }, class: "btn btn-danger" %>
+    <%= link_to 'メンバー一覧', members_group_path(@group) %>
+  <% else %>
+  <td><%= @group.users.count %></td>
+    <%= link_to '参加する', join_group_path(@group), method: :post, class: "btn btn-success" %>
+    
+  <% end %>
+  </td>
+<% end %>
+
+   <% if @group.owner_id == current_user.id %>
+    <td>
+     <%= link_to '編集', edit_group_path(@group), class: "btn btn-sm btn-success" %>
+    </td>
+    <% else %>
+
+<% end %>
+  </group>
+</tr>
+ 

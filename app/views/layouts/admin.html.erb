@@ -1,18 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Admin - check</title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
-  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-</head>
+  <head>
+    <title>CheckdaysAdmin</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
 <body>
+  <header>
   <% if admin_signed_in? %>
-    <div class="text-right">
+    <li>
       <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %>
-    </div>
+    </li>
+     <li>
+      <%= link_to 'ユーザー一覧', admin_dashboards_path %>
+    </li>
+     <li>
+      <%= link_to '投稿一覧', admin_postall_path %>
+    </li>
+    <li>
+      <%= link_to 'コメント一覧', admin_commentall_path %>
+    </li>
+    <li>
+      <%= link_to 'グループ一覧', admin_groupall_path %>
+    </li>
   <% end %>
+  </header>
   <%= yield %>
 </body>
 </html>

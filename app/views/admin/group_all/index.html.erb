@@ -1,0 +1,9 @@
+<h1>全グループ一覧</h1>
+ 
+<% @group.each do |group| %>
+  <content>
+    <p><%= group.name || "このグループは削除されました" %></p>
+    <p>詳細：<%= group.introduction %></p>
+  <%= link_to '削除', admin_group_path(group), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+  </content>
+<% end %>

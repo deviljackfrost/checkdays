@@ -13,6 +13,13 @@
    
     <%= link_to "編集", edit_users_content_path(@user) %>
   </div1>
-  コメント数 <%=  @user.post_comments.count %>
- 
+
+  投稿コメント数 <%=  @user.post_comments.count %>
+ <br>
+ <br>
+ <br>
+   <delete>
+  <%= link_to "ユーザー退去", users_content_path, method: :delete, data: { confirm: "削除しますか？" } %>
+  </delete>
+  
 </content>

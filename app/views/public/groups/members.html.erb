@@ -1,0 +1,8 @@
+<h1>グループメンバー一覧</h1>
+<content>
+<ul>
+  <% @members.each do |member| %>
+    <li><%= member.name %>（<%= member.email %>）</li>
+  <% end %>
+</ul>
+</content>

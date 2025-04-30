@@ -1,0 +1,25 @@
+
+<div>
+  <%= flash[:alert] %>
+</div>
+
+
+  <group>
+     <h3>グループ編集</h3>
+   
+
+<%= form_with(model: @group, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :introduction %>
+    <%= form.text_area :introduction %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "変更" %>
+  </div>
+<% end %>

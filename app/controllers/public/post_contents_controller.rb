@@ -20,12 +20,12 @@ end
     if current_user
     @post_content.user_id = current_user.id
     end
-  if @post_content.save
+   if @post_content.save
     redirect_to post_contents_path, notice: "投稿しました"
-  else
+   else
     flash[:alert] = "投稿できませんでした入れ直してください"
     render :new
-  end
+   end
   end
 
   def edit

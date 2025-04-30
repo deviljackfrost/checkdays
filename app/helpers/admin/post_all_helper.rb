@@ -1,0 +1,2 @@
+module Admin::PostAllHelper
+end

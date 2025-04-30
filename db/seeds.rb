@@ -39,6 +39,8 @@ PostContent.find_or_create_by!(title: "ShoreditchBar") do |post_image|
   post_image.user = lucas
 end
 
+Admin.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') do
+end
 
 
 puts "seedの実行が完了しました"
