@@ -21,8 +21,7 @@ Rails.application.routes.draw do
       resources :post_comments
     end
     
-  end
-
+  
   devise_for :admin, skip: [:registrations, :password], controllers: {
     sessions: 'admin/sessions'
   }
