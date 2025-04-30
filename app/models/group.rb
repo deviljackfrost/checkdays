@@ -12,12 +12,4 @@ class Group < ApplicationRecord
     group_users.exists?(user_id: user.id)
   end
   
-  user = User.find(1)
-group = Group.find(1)
-
- if group.joined_by?(user)
-  puts "#{user.name} は #{group.name} グループに参加しています"
- else
-  puts "#{user.name} は #{group.name} グループに参加していません"
- end
 end
