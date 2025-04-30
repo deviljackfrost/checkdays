@@ -9,7 +9,7 @@ class Public::UsersContentController < ApplicationController
 
   def show
      @user = User.find(params[:id])
-     @post_content = @user.post_content.page(params[:page])
+     @post_content = @user.post_contents.page(params[:page])
   end
 
   def create
