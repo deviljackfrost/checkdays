@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   scope module: :public do
       
     devise_for :users
-    resources :groups do
+    resources :groups 
       member do
         get  'members'
         post 'update_status'
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     get 'homes/about'
     get "search" => "searches#search"
     resources :users_content, only: [:mypage, :show, :create, :edit, :update, :destroy]
-    resources :post_contents do
+    resources :post_contents 
       resources :post_comments
     end
     
