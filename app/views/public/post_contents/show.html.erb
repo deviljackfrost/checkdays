@@ -10,9 +10,12 @@
 
 <h2>ユーザーネーム</h2>
  <p><%= @post_content.user.name %></p>
-    <%= link_to "編集", edit_post_content_path(@post_content) %>
-   <%= link_to "削除", post_content_path(@post_content), method: :delete %>
+   
 <% end %>
+  <% if @post_content.user == current_user %> 
+ <%= link_to "編集", edit_post_content_path(@post_content) %>
+   <%= link_to "削除", post_content_path(@post_content), method: :delete %>
+   <% end %>
 </content>
 
 
