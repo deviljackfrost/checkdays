@@ -29,7 +29,7 @@
   <p>コメント件数：<%= @post_content.post_comments.count %></p>
   <% @post_content.post_comments.each do |post_comment| %>
    <br>
-    <%= post_comment.user.name %>
+    ユーザー：<%= post_comment.user.name %>
     <br>
     <%= post_comment.created_at.strftime('%Y/%m/%d') %>
       <br>
@@ -39,13 +39,17 @@
 </div>
     <br>
 <div>
+  <% if current_user.guest? %>
+    <% else %>
   <%= form_with model: [@post_content, @post_comment] do |f| %>
     <%= f.text_area :comment, rows: '5', placeholder: "コメント" %>
     <%= f.submit "入力する" %>
   <% end %>
+    <% end %>
 </div>
 
  <%= form_with model: @post_content, url: post_content_path(@post_content.id), method: :patch do |f| %>
+ 
 <li>
     <%= link_to "一覧へ戻る", post_contents_path(@post_content.id) %>
 </li>
