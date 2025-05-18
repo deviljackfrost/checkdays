@@ -13,13 +13,18 @@ class PostContent < ApplicationRecord
     ["caption", "content", "created_at", "id", "title", "updated_at", "user_id"]
   end
   
-  def self.search(search)
-    if search
-      PostContent.where('title LIKE (?)', "%#{search}%")
-    else
-      PostContent.all
-    end
+def self.search(search)
+  errors = {}
+  if search.blank?
+    errors[:search] = "検索ワードを入力してください"
   end
+
+  if errors.any?
+    return { errors: errors }
+  else
+    PostContent.where('title LIKE ? OR caption LIKE ?', "%#{search}%", "%#{search}%")
+  end
+end
   
   def both_fields_not_blank
     if title.blank? && caption.blank?

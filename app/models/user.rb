@@ -24,4 +24,20 @@ class User < ApplicationRecord
       @user = User.all
     end
   end
+  
+  GUEST_USER_EMAIL = "guest@example.com"
+
+  def guest?
+    email == "guest@example.com"
+  end
+
+
+  def self.guest
+    # find_or_create_byでメールアドレスが存在するかどうか判断。存在しない場合はデータを作成する。
+    find_or_create_by(email: GUEST_USER_EMAIL) do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = "guestuser"
+    end
+  end
+  
 end

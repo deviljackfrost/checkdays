@@ -2,20 +2,25 @@
 
 <content>
     <%= form_with model: @post_content, url: post_content_path(@post_content.id), method: :patch do |f| %>
+<br>
 <h2>タイトル</h2>
 <p><%= @post_content.title %></p>
-
+<br>
 <h2>本文</h2>
 <p><%= @post_content.caption %></p>
-
+<br>
 <h2>ユーザーネーム</h2>
+<br>
  <p><%= @post_content.user.name %></p>
-   
+   <br>
+   <p>作成日時：<%= @post_content.created_at.strftime('%Y/%m/%d') %></p>
+    <br>
 <% end %>
   <% if @post_content.user == current_user %> 
  <%= link_to "編集", edit_post_content_path(@post_content) %>
    <%= link_to "削除", post_content_path(@post_content), method: :delete %>
    <% end %>
+   <br>
 </content>
 
 

@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   scope module: :public do
       
     devise_for :users
+    
+  devise_scope :user do
+    post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
+  end
+  
     resources :groups do
       member do
         get  'members'
@@ -14,14 +19,19 @@ Rails.application.routes.draw do
       resource :group_users, only: [:create, :edit, :destroy, :update]
     end
     root to: "homes#top"
+    
     get 'homes/about'
     get "search" => "searches#search"
+    
     resources :users_content, only: [:mypage, :show, :create, :edit, :update, :destroy]
+    
     resources :post_contents do
       resources :post_comments
     end
     
   end
+
+
 
   devise_for :admin, skip: [:registrations, :password], controllers: {
     sessions: 'admin/sessions'

@@ -1,5 +1,6 @@
 <post>
-
+  <% if current_user.guest? %>
+  <% else %>
 <div>
   <%= flash[:alert] %>
 </div>
@@ -11,5 +12,6 @@
   <%= f.text_area :caption %>
   <br>
   <%= f.submit '投稿' %>
+<% end %>
 <% end %>
 </post>

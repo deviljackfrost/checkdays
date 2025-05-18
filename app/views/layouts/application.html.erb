@@ -16,18 +16,21 @@
       <li>
      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       </li>
-       <li>
-    <%= link_to '投稿', new_post_content_path %>
-       </li>
-        <li>
-    <%= link_to 'グループ一覧', groups_path %>
-       </li>
         <li>
     <%= link_to '投稿一覧', post_contents_path %>
        </li>
-        <li>
-    <%= link_to 'ユーザー編集', users_content_path(current_user) %>
+  <% if current_user.guest? %>
+    <% else %>
+       <li>
+    <%= link_to 'グループ一覧', groups_path %>
        </li>
+        <li>
+    <%= link_to '投稿', new_post_content_path %>
+       </li>
+        <li>
+     <%= link_to 'ユーザー編集', users_content_path(current_user) %>
+       </li>
+    <% end %>
     <% else %>
       <li>
         <%= link_to "新規登録", new_user_registration_path %>
@@ -36,7 +39,7 @@
         <%= link_to "ログイン", new_user_session_path %>
       </li>
       <li>
-        <%= link_to "ゲストログイン", post_contents_path %>
+        <%= link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, method: :post %>
       </li>
     <% end %>
   </header>
