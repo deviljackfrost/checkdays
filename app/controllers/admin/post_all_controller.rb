@@ -4,4 +4,6 @@ layout 'admin'
     def index
         @post_content = PostContent.all
     end
+    
+    
 end

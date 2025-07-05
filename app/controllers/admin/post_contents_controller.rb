@@ -1,5 +1,4 @@
 class Admin::PostContentsController < ApplicationController
- before_action :authenticate_admin!
     def destroy
         @post_content = PostContent.find(params[:id])
         @post_content.destroy

@@ -24,12 +24,7 @@ lucas = User.find_or_create_by!(email: "lucas@example.com") do |user|
   user.password = "password"
   end
   
-  ser.create!(
-  name: "Admin User",
-  email: "admin_test@example.com",
-  password: "password",
-  role: "admin"
-)
+  
 
 PostContent.find_or_create_by!(title: "Cavello") do |post_content|
   post_content.caption = "大人気のカフェです。"
@@ -49,7 +44,21 @@ end
 post_content = PostContent.find_by(title: "ShoreditchBar")
 PostComment.create! do |post_comment|
   post_comment.post_content = post_content
+  post_comment.user = olivia
+  post_comment.comment = "ここにコメントを記入"
+end
+
+post_content = PostContent.find_by(title: "ShoreditchBar")
+PostComment.create! do |post_comment|
+  post_comment.post_content = post_content
   post_comment.user = james
+  post_comment.comment = "ここにコメントを記入"
+end
+
+post_content = PostContent.find_by(title: "ShoreditchBar")
+PostComment.create! do |post_comment|
+  post_comment.post_content = post_content
+  post_comment.user = lucas
   post_comment.comment = "ここにコメントを記入"
 end
 
