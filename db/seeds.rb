@@ -23,24 +23,37 @@ lucas = User.find_or_create_by!(email: "lucas@example.com") do |user|
   user.name = "Lucas"
   user.password = "password"
   end
+  
+  ser.create!(
+  name: "Admin User",
+  email: "admin_test@example.com",
+  password: "password",
+  role: "admin"
+)
 
-PostContent.find_or_create_by!(title: "Cavello") do |post_image|
-  post_image.caption = "大人気のカフェです。"
-  post_image.user = olivia
+PostContent.find_or_create_by!(title: "Cavello") do |post_content|
+  post_content.caption = "大人気のカフェです。"
+  post_content.user = olivia
 end
 
-PostContent.find_or_create_by!(title: "和食屋せん") do |post_image|
-  post_image.caption = "日本料理は美しい！"
-  post_image.user = james
+PostContent.find_or_create_by!(title: "和食屋せん") do |post_content|
+  post_content.caption = "日本料理は美しい！"
+  post_content.user = james
 end
 
-PostContent.find_or_create_by!(title: "ShoreditchBar") do |post_image|
-  post_image.caption = 'メキシコ料理好きな方にオススメ！'
-  post_image.user = lucas
+PostContent.find_or_create_by!(title: "ShoreditchBar") do |post_content|
+  post_content.caption = 'メキシコ料理好きな方にオススメ！'
+  post_content.user = lucas
+end
+
+post_content = PostContent.find_by(title: "ShoreditchBar")
+PostComment.create! do |post_comment|
+  post_comment.post_content = post_content
+  post_comment.user = james
+  post_comment.comment = "ここにコメントを記入"
 end
 
 Admin.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') do
 end
-
 
 puts "seedの実行が完了しました"
