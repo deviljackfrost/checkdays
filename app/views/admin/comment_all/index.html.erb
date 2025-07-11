@@ -3,6 +3,7 @@
    <content>
     <p>ユーザー：<%= post_comment.user&.name || "このユーザーは退会されました" %></p>
     <p>本文：<%= post_comment.comment %></p>
+    <p>投稿先：<%= post_comment.post_content.caption %></p>
      <%= link_to '削除', admin_post_comment_path(post_comment), method: :delete %> 
    </content>
 <% end %>

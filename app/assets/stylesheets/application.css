@@ -36,7 +36,6 @@ content {
     justify-content: space-around;
     width: 100%;;
     flex-direction: column;
-    align-items: center;
     border: 2px solid #000;
     margin: 10px;
    background: linear-gradient(#FFFFFF, #00FFFF);
@@ -45,17 +44,14 @@ content {
 div1 {  
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 100%;
+    width: 80%;
     margin: 10px;
     border: 2px solid #000;
-    text-align: center;
 }
 
 ul {  
     display: flex;
     flex-direction: row;
-    text-align: center;
 }
 
 
@@ -63,7 +59,6 @@ li {
     display: flex;
     flex-direction: row;
     margin: 20px;
-    text-align: center;
 }
 
 
@@ -73,22 +68,21 @@ post {
     width: 100%;
     margin: 10px;
     border: 2px solid #000;
-    text-align: center;
     background: linear-gradient(#FFFFFF, #dda0dd);
 }
 
 delete {  
+    display: flex;
     background: #dc143c;
+    
 }
 
 group {
     display: flex;
-    text-align: center;
     margin: 50px;
     height: 300px;
     width: 600PX;
     border: 2px solid #000;
-    align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
 }
@@ -98,7 +92,6 @@ group_content {
     justify-content: space-around;
     flex-direction: column;
     width: 60%;
-    align-items: center;
     padding: 50px;
     border: 2px solid #000;
     margin: 50px;
@@ -107,24 +100,20 @@ group_content {
 
 group_team {
     display: flex;
-    text-align: center;
     padding: 50px;
     height: 90%;
     width: 80%;
     border: 2px solid #000;
-    align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
 }
 
 group_item {
     display: flex;
-    text-align: center;
     padding: 50px;
     height: 90%;
     width: auto;
     border: 2px solid #000;
-    align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
 }

@@ -27,7 +27,7 @@
 
 <div class = "comment" >
   <p>コメント件数：<%= @post_content.post_comments.count %></p>
-  <% @post_content.post_comments.each do |post_comment| %>
+  <% @post_content.post_comments.order(created_at: :desc).each do |post_comment| %>
    <br>
     ユーザー：<%= post_comment.user.name %>
     <br>

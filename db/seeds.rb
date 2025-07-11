@@ -24,42 +24,89 @@ lucas = User.find_or_create_by!(email: "lucas@example.com") do |user|
   user.password = "password"
   end
   
+admin = User.find_or_create_by!(email: "admin@example.com") do |user|
+  user.name = "admin"
+  user.password = "password"
+  end
+  
   
 
 PostContent.find_or_create_by!(title: "Cavello") do |post_content|
+    min_days_ago = 1
+  max_days_ago = 365
+  random_days_ago = rand(min_days_ago..max_days_ago)
+  random_date = Time.now - random_days_ago.days
+  
   post_content.caption = "大人気のカフェです。"
   post_content.user = olivia
+  post_content.created_at = random_date
+  post_content.updated_at = random_date
 end
 
 PostContent.find_or_create_by!(title: "和食屋せん") do |post_content|
+    min_days_ago = 1
+  max_days_ago = 365
+  random_days_ago = rand(min_days_ago..max_days_ago)
+  random_date = Time.now - random_days_ago.days
+  
   post_content.caption = "日本料理は美しい！"
   post_content.user = james
+  post_content.created_at = random_date
+  post_content.updated_at = random_date
 end
 
 PostContent.find_or_create_by!(title: "ShoreditchBar") do |post_content|
+    min_days_ago = 1
+  max_days_ago = 365
+  random_days_ago = rand(min_days_ago..max_days_ago)
+  random_date = Time.now - random_days_ago.days
+  
   post_content.caption = 'メキシコ料理好きな方にオススメ！'
   post_content.user = lucas
+  post_content.created_at = random_date
+  post_content.updated_at = random_date
 end
 
 post_content = PostContent.find_by(title: "ShoreditchBar")
 PostComment.create! do |post_comment|
+  min_days_ago = 1
+  max_days_ago = 365
+  random_days_ago = rand(min_days_ago..max_days_ago)
+  random_date = Time.now - random_days_ago.days
+
   post_comment.post_content = post_content
   post_comment.user = olivia
   post_comment.comment = "ここにコメントを記入"
+  post_comment.created_at = random_date
+  post_comment.updated_at = random_date
 end
 
 post_content = PostContent.find_by(title: "ShoreditchBar")
 PostComment.create! do |post_comment|
+  min_days_ago = 1
+  max_days_ago = 365
+  random_days_ago = rand(min_days_ago..max_days_ago)
+  random_date = Time.now - random_days_ago.days
+
   post_comment.post_content = post_content
   post_comment.user = james
   post_comment.comment = "ここにコメントを記入"
+  post_comment.created_at = random_date
+  post_comment.updated_at = random_date
 end
 
 post_content = PostContent.find_by(title: "ShoreditchBar")
 PostComment.create! do |post_comment|
+  min_days_ago = 1
+  max_days_ago = 365
+  random_days_ago = rand(min_days_ago..max_days_ago)
+  random_date = Time.now - random_days_ago.days
+
   post_comment.post_content = post_content
   post_comment.user = lucas
   post_comment.comment = "ここにコメントを記入"
+  post_comment.created_at = random_date
+  post_comment.updated_at = random_date
 end
 
 Admin.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') do

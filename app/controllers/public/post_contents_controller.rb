@@ -3,11 +3,11 @@ class Public::PostContentsController < ApplicationController
     @post_content = PostContent.new
   end
 
-def index
-  @post_contents = PostContent.page(params[:page])
-  @q = PostContent.ransack(params[:q])
-  @post_content = @q.result
-end
+  def index
+   @post_contents = PostContent.page(params[:page]).per(5)
+   @q = PostContent.ransack(params[:q])
+   @post_content = @q.result.order(created_at: :desc)
+  end
   
   def show
     @post_content = PostContent.find(params[:id])
@@ -17,15 +17,15 @@ end
   def create
     @post_content = PostContent.new(post_content_params)
     @post_content.content = params[:post_content] 
-    if current_user
-    @post_content.user_id = current_user.id
-    end
-   if @post_content.save
-    redirect_to post_contents_path, notice: "投稿しました"
-   else
-    flash[:alert] = "投稿できませんでした入れ直してください"
-    render :new
-   end
+     if current_user
+      @post_content.user_id = current_user.id
+     end
+     if @post_content.save
+      redirect_to post_contents_path, notice: "投稿しました"
+     else
+      flash[:alert] = "投稿できませんでした入れ直してください"
+      render :new
+     end
   end
 
   def edit
