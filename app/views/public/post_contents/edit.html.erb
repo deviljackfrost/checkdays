@@ -2,7 +2,7 @@
 <div>
   <%= flash[:notice] %>
 </div>
-
+ <% if @post_content.user == current_user %> 
 <h1>投稿編集</h1>
 
 <%= form_with model: @post_content, url: post_content_path(@post_content.id), method: :patch do |f| %>
@@ -16,3 +16,12 @@
   <%= f.submit '変更' %>
   
 <% end %>
+
+ <% else %>
+
+   <h1>投稿主ではないため投稿内容を変更できません</h1>
+   <h1>一覧にお戻りください</h1>
+　 <h1><%= link_to '一覧に戻る', post_contents_path %></h1>
+　
+ <% end %>
+ 
