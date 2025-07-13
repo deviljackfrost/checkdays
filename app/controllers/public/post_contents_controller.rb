@@ -4,14 +4,14 @@ class Public::PostContentsController < ApplicationController
   end
 
   def index
-   @post_contents = PostContent.page(params[:page]).per(5)
    @q = PostContent.ransack(params[:q])
-   @post_content = @q.result.order(created_at: :desc)
+   @post_content = @q.result.page(params[:page]).per(5).order(created_at: :desc)
   end
   
   def show
     @post_content = PostContent.find(params[:id])
     @post_comment = PostComment.new
+    @post_comments = PostComment.page(params[:page]).per(5)
   end
   
   def create
@@ -21,7 +21,7 @@ class Public::PostContentsController < ApplicationController
       @post_content.user_id = current_user.id
      end
      if @post_content.save
-      redirect_to post_contents_path, notice: "投稿しました"
+      redirect_to post_contents_path, notice: "投稿に成功しました"
      else
       flash[:alert] = "投稿できませんでした入れ直してください"
       render :new
@@ -41,11 +41,13 @@ class Public::PostContentsController < ApplicationController
   def destroy
     @post_content = PostContent.find(params[:id])
     @post_content.destroy  
-    redirect_to post_contents_path(@post_content)
+    flash[:notice] = "投稿を削除しました。"
+    redirect_to post_contents_path(@post_content.id)
   end
   
   
 private
+
 
 
 def post_content_params

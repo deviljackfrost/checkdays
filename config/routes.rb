@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     
     resources :post_contents do
       resources :post_comments
+      
     end
     
   end

@@ -1,4 +1,8 @@
 
+<div>
+  <%= flash[:notice] %>
+</div>
+
 
 <content>
     <%= form_with model: @post_content, url: post_content_path(@post_content.id), method: :patch do |f| %>
@@ -10,10 +14,10 @@
 <p><%= @post_content.caption %></p>
 <br>
 <h2>ユーザーネーム</h2>
-<br>
  <p><%= @post_content.user.name %></p>
    <br>
-   <p>作成日時：<%= @post_content.created_at.strftime('%Y/%m/%d') %></p>
+   <h2>作成日時</h2>
+   <p><%= @post_content.created_at.strftime('%Y/%m/%d') %></p>
     <br>
 <% end %>
   <% if @post_content.user == current_user %> 
@@ -27,7 +31,7 @@
 
 <div class = "comment" >
   <p>コメント件数：<%= @post_content.post_comments.count %></p>
-  <% @post_content.post_comments.order(created_at: :desc).each do |post_comment| %>
+  <% @post_content.post_comments.page(params[:page]).per(5).order(created_at: :desc).each do |post_comment| %>
    <br>
     ユーザー：<%= post_comment.user.name %>
     <br>
@@ -35,7 +39,14 @@
       <br>
     <%= post_comment.comment %>
       <br>
+      
+  <% if post_comment.user == current_user %>
+  
+   <%= link_to "削除", post_content_post_comment_path(@post_content, post_comment), method: :delete %>
+   <% else %>
+    <% end %>
   <% end %>
+  <%= paginate @post_comments %>
 </div>
     <br>
 <div>
@@ -43,7 +54,7 @@
     <% else %>
   <%= form_with model: [@post_content, @post_comment] do |f| %>
     <%= f.text_area :comment, rows: '5', placeholder: "コメント" %>
-    <%= f.submit "入力する" %>
+    <%= f.submit "入力する送信" %>
   <% end %>
     <% end %>
 </div>

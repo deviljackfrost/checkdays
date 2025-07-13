@@ -1,5 +1,5 @@
 
-<% @post_contents.each do |post_content| %>
+<% @post_content.each do |post_content| %>
   <% if post_content.errors.any? %>
     <%= post_content.errors.count %>件のエラーが発生しました
     <ul>
@@ -10,7 +10,9 @@
   <% end %>
 <% end %>
 
-
+<div>
+  <%= flash[:notice] %>
+</div>
 
 
 <content>
@@ -18,7 +20,7 @@
 
 <% if user_signed_in? %>
 <%= search_form_for @q do |f| %>
-  <%= f.label :title_or_caption_cont, 'title or caption' %>
+  <%= f.label :title_or_caption_cont, 'タイトル・本文' %>
   <%= f.search_field :title_or_caption_cont, class: "form-control" %>
 
   <%= f.submit "検索" %>
@@ -37,10 +39,12 @@
      <p><%= link_to "コメント　#{post_content.post_comments.count}", post_content_path(post_content.id) %></p>
    <% if post_content.user == current_user %>
    
-   <%= link_to "編集", post_content_path(post_content.id) %>
+   <%= link_to "投稿編集", post_content_path(post_content.id) %>
    <%= link_to "削除", post_content_path(post_content), method: :delete %>
     <% end %>
     
   </div1>
 <% end %>
   </content>
+
+<%= paginate @post_content %>
