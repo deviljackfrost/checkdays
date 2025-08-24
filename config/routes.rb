@@ -26,8 +26,7 @@ Rails.application.routes.draw do
     resources :users_content, only: [:mypage, :show, :create, :edit, :update, :destroy]
     
     resources :post_contents do
-      resources :post_comments
-      
+      resources :post_comments, only: [:show, :create, :edit, :update, :destroy]
     end
     
   end

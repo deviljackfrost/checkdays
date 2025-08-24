@@ -51,7 +51,7 @@ private
 
 
 def post_content_params
-  params.require(:post_content).permit(:title, :caption, :content)
+  params.require(:post_content).permit(:title, :caption, :content, :comment)
 end
 
 end

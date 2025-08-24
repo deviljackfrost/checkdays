@@ -31,7 +31,7 @@
 
 <div class = "comment" >
   <p>コメント件数：<%= @post_content.post_comments.count %></p>
-  <% @post_content.post_comments.page(params[:page]).per(5).order(created_at: :desc).each do |post_comment| %>
+  <% @post_content.post_comments.page(params[:page]).per(3).order(created_at: :desc).each do |post_comment| %>
    <br>
     ユーザー：<%= post_comment.user.name %>
     <br>
@@ -42,7 +42,8 @@
       
   <% if post_comment.user == current_user %>
   
-   <%= link_to "削除", post_content_post_comment_path(@post_content, post_comment), method: :delete %>
+   <%= link_to "編集", edit_post_content_post_comment_path(@post_content,post_comment.id) %>
+   <%= link_to "削除", post_content_post_comment_path(@post_content,post_comment), method: :delete %>
    <% else %>
     <% end %>
   <% end %>

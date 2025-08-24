@@ -34,7 +34,7 @@ header {
 content {
     display: flex;
     justify-content: space-around;
-    width: 100%;;
+    width: 80%;
     flex-direction: column;
     border: 2px solid #000;
     margin: 10px;
