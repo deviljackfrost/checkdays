@@ -4,19 +4,26 @@
 
 <h1>ユーザー編集</h1>
 
+
 <%= form_with model: @user, url: users_content_path(@user.id), method: :patch do |f| %>
 
   <h4>名前</h4>
   <%= f.text_field :name %>
   
-  <h4>パスワード</h4>
-  <%= f.text_field :encrypted_password %>
   
     <h4>メールアドレス</h4>
   <%= f.text_field :email %>
   
   <%= f.submit '保存' %>
+  <br>
   
-   <%= link_to "ユーザー退去", users_content_path, method: :delete, data: { confirm: "削除しますか？" } %>
+  <h4>
+  <%= link_to "パスワード変更", edit_user_registration_path %>
+  </h4>
+  
+  
+  <delete>
+  <%= link_to "ユーザー退去", users_content_path, method: :delete, data: { confirm: "本当に退去しますか？" } %>
+  </delete>
   
 <% end %>

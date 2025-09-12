@@ -32,6 +32,9 @@
 
 <% @post_content.each do |post_content| %>
   <div1>
+  <% if @time < post_content.created_at.since(3.day) %> 
+    <div class = "new-mark">新着</div>
+  <% end %> 
     <p>ユーザー：<%= post_content.user.name || "このユーザーは退会されました" %></p>
     <p>タイトル：<%= post_content.title %></p>
     <p>本文：<%= post_content.caption %></p>

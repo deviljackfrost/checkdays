@@ -1,5 +1,10 @@
 <h2>ログイン</h2>
 
+<div>
+  <%= flash[:alert] %>
+</div>
+
+
 <%= form_with model: @user, url: new_user_session_path do |f| %>
 
 

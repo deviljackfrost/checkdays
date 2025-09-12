@@ -17,7 +17,7 @@
  <p><%= @post_content.user.name %></p>
    <br>
    <h2>作成日時</h2>
-   <p><%= @post_content.created_at.strftime('%Y/%m/%d') %></p>
+   <p><%= @post_content.created_at.strftime('%Y-%m-%d %H:%M') %></p>
     <br>
 <% end %>
   <% if @post_content.user == current_user %> 
@@ -31,22 +31,21 @@
 
 <div class = "comment" >
   <p>コメント件数：<%= @post_content.post_comments.count %></p>
-  <% @post_content.post_comments.page(params[:page]).per(3).order(created_at: :desc).each do |post_comment| %>
-   <br>
+  <% @post_content.post_comments.page(params[:page]).per(5).order(created_at: :desc).each do |post_comment| %>
+  <div1>
     ユーザー：<%= post_comment.user.name %>
-    <br>
-    <%= post_comment.created_at.strftime('%Y/%m/%d') %>
-      <br>
-    <%= post_comment.comment %>
-      <br>
-      
+    <div class = "comment_content" ><%= post_comment.comment %></div>
+    <div class = "time" ><%= post_comment.created_at.strftime('%Y-%m-%d %H:%M') %></div>
+    
   <% if post_comment.user == current_user %>
   
    <%= link_to "編集", edit_post_content_post_comment_path(@post_content,post_comment.id) %>
    <%= link_to "削除", post_content_post_comment_path(@post_content,post_comment), method: :delete %>
    <% else %>
     <% end %>
+     </div1>
   <% end %>
+  
   <%= paginate @post_comments %>
 </div>
     <br>

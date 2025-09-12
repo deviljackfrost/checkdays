@@ -1,4 +1,6 @@
-
+<div>
+  <%= flash[:notice] %>
+</div>
 <div>
   <%= flash[:alert] %>
 </div>
@@ -18,6 +20,8 @@
     <%= form.label :introduction %>
     <%= form.text_area :introduction %>
   </div>
+
+
 
   <div class="actions">
     <%= form.submit "変更" %>

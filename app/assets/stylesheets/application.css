@@ -21,7 +21,7 @@
  
 html {
     height: 100%;
-    background: linear-gradient(#FFFFFF, #00ff7f);
+    background: #00ff8f;
   }
  
  
@@ -119,9 +119,44 @@ group_item {
 }
 
 .comment {
-  width: 300px;
-  background: linear-gradient(#FFFFFF, #00FFFF);
-  border: 2px solid #000;
-  height: auto;
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    flex-direction: column;
+    border: 2px solid #000;
+    margin: 10px;
+   background: linear-gradient(#FFFFFF, #00FFFF);
 }
 
+.new-mark {
+    
+     background: linear-gradient(#FFFFFF, #FF0000);
+     
+}
+
+.name {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    border: 2px solid #000;
+    margin: 10px;
+    background: linear-gradient(#FFFFFF, #00FFFF);
+}
+
+.time {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.comment_content {
+    display: flex;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    justify-content: space-around;
+    flex-direction: column;
+    border: 2px solid #000;
+    margin: 10px;
+    background: linear-gradient(#FFFFFF, #00FF00);
+}

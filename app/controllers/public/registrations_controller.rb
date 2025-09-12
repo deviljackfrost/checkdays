@@ -3,11 +3,33 @@
 class Public::RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_parameters
 
+  def update
+   @user = current_user
+   if @user.update(user_params)
+       flash[:notice] = "登録を変更しました"
+       redirect_to users_content_path(@user)
+   else
+       flash[:alert] = "登録を変更できませんでした,入力内容を確認してください"
+       render :edit
+   end
+  end
+
+
   private
+  
+  def after_update_path_for
+    user_registration_path(current_user.id)
+  end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :password, :password_confirmation])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :password])
   end
+  
+   
+  def user_params
+    params.require(:user).permit(:name, :email, :encrypted_password)
+  end
+
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 

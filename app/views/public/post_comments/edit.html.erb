@@ -4,6 +4,6 @@
 
 <h1>コメント編集</h1>
   <%= form_with model: [@post_content, @post_comment], url: post_content_post_comment_path(@post_comment.id), method: :patch do |f| %>
-    <%= f.text_field :comment, rows: '5', placeholder: "コメント" %>
+    <%= f.text_area :comment, rows: '5', placeholder: "コメント" %>
     <%= f.submit "変更する" %>
   <% end %>

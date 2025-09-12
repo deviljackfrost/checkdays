@@ -5,18 +5,21 @@ class Public::PostContentsController < ApplicationController
 
   def index
    @q = PostContent.ransack(params[:q])
-   @post_content = @q.result.page(params[:page]).per(5).order(created_at: :desc)
+   @post_content = @q.result.page(params[:page]).order(created_at: :desc)
+   @time = Time.new(2000,1,1,12,00,00)
   end
   
   def show
     @post_content = PostContent.find(params[:id])
     @post_comment = PostComment.new
-    @post_comments = PostComment.page(params[:page]).per(5)
+    @comment = PostComment.all
+    @post_comments = PostComment.page(params[:page])
   end
+  
   
   def create
     @post_content = PostContent.new(post_content_params)
-    @post_content.content = params[:post_content] 
+    @post_content.content = params[:content] 
      if current_user
       @post_content.user_id = current_user.id
      end
