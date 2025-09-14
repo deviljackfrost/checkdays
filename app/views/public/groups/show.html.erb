@@ -5,11 +5,11 @@
 
 <tr>
   <group>
-  <td><%= @group.name %></td>
+  <td>グループ名：<%= @group.name %></td>
   <br>
-  <br>
+  <td>詳細</td>
   <td><%= @group.introduction %></td>
-  
+   <br>
     <br>
  <% if current_user.present? %>
   <td>

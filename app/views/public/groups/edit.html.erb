@@ -12,12 +12,14 @@
 
 <%= form_with(model: @group, local: true) do |form| %>
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :グループ名%>
+      <br>
     <%= form.text_field :name %>
   </div>
 
   <div class="field">
-    <%= form.label :introduction %>
+    <%= form.label :内容 %>
+    <br>
     <%= form.text_area :introduction %>
   </div>
 

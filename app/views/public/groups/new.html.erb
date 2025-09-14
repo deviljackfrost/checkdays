@@ -1,10 +1,7 @@
 <div>
   <%= flash[:alert] %>
 </div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <post>
       <h2>グループ作成</h2>
       <%= form_with model: @group, local: true do |f| %>
         <div class="form-group">
@@ -20,5 +17,4 @@
         <%= f.submit "作成", class: "btn btn-primary" %>
       <% end %>
     </div>
-  </div>
-</div>
+</post>

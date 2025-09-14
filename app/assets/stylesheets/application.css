@@ -38,6 +38,7 @@ content {
     flex-direction: column;
     border: 2px solid #000;
     margin: 10px;
+    padding: 10px;
    background: linear-gradient(#FFFFFF, #00FFFF);
 }
 
@@ -67,6 +68,7 @@ post {
     flex-direction: column;
     width: 100%;
     margin: 10px;
+    padding: 10px;
     border: 2px solid #000;
     background: linear-gradient(#FFFFFF, #dda0dd);
 }
@@ -78,13 +80,12 @@ delete {
 }
 
 group {
-    display: flex;
-    margin: 50px;
-    height: 300px;
-    width: 600PX;
-    border: 2px solid #000;
-    justify-content: space-evenly;
+   display: flex;
     flex-direction: column;
+    width: 100%;
+    margin: 10px;
+    border: 2px solid #000;
+    background: linear-gradient(#FFFFFF, #dda0dd);
 }
 
 group_content {

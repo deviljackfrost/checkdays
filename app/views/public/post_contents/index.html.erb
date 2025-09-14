@@ -1,4 +1,14 @@
+<html>
+  <head>
+    <title>Checkdays</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  
 <% @post_content.each do |post_content| %>
   <% if post_content.errors.any? %>
     <%= post_content.errors.count %>件のエラーが発生しました
@@ -17,7 +27,6 @@
 
 <content>
   <h1>投稿一覧</h1>
-
 <% if user_signed_in? %>
 <%= search_form_for @q do |f| %>
   <%= f.label :title_or_caption_cont, 'タイトル・本文' %>
@@ -38,7 +47,7 @@
     <p>ユーザー：<%= post_content.user.name || "このユーザーは退会されました" %></p>
     <p>タイトル：<%= post_content.title %></p>
     <p>本文：<%= post_content.caption %></p>
-    <%= post_content.created_at.strftime('%Y/%m/%d') %>
+    <%= post_content.created_at.strftime('%Y-%m-%d %H:%M')%>
      <p><%= link_to "コメント　#{post_content.post_comments.count}", post_content_path(post_content.id) %></p>
      
    <% if post_content.user == current_user %>
@@ -53,3 +62,4 @@
   </content>
 
 <%= paginate @post_content %>
+</html>

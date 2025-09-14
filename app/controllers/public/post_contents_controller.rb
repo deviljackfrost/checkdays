@@ -6,7 +6,8 @@ class Public::PostContentsController < ApplicationController
   def index
    @q = PostContent.ransack(params[:q])
    @post_content = @q.result.page(params[:page]).order(created_at: :desc)
-   @time = Time.new(2000,1,1,12,00,00)
+   @time = Time.current
+   @post_all = PostContent.all
   end
   
   def show
