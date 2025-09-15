@@ -48,6 +48,10 @@
     <p>タイトル：<%= post_content.title %></p>
     <p>本文：<%= post_content.caption %></p>
     <%= post_content.created_at.strftime('%Y-%m-%d %H:%M')%>
+  <% if post_content.image.attached? %>
+    <%= link_to image_tag(post_content.image, size: "200x200"),post_content_path(post_content.id)  %>
+  <% else %>
+  <% end %>
      <p><%= link_to "コメント　#{post_content.post_comments.count}", post_content_path(post_content.id) %></p>
      
    <% if post_content.user == current_user %>

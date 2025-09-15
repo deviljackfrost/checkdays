@@ -1,6 +1,7 @@
 class Public::GroupsController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:edit, :update, :destroy] 
+  
   def new
     @group = Group.new
     @group.users << current_user
@@ -21,11 +22,11 @@ class Public::GroupsController < ApplicationController
     @groups = Group.all
   end
   
-def members
-  @group = Group.find(params[:id])
-  @members = @group.users
-  render 'members'
-end
+ def members
+   @group = Group.find(params[:id])
+   @members = @group.all
+   render 'members'
+ end
 
   def show
     @group = Group.find(params[:id])

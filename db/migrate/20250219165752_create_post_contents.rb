@@ -5,7 +5,7 @@ class CreatePostContents < ActiveRecord::Migration[6.1]
       t.string :caption
       t.integer :user_id
       t.string :content
-      
+      t.string :image
       t.timestamps
     end
   end

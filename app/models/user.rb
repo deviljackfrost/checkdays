@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :groups, dependent: :destroy
   has_many :groups, through: :group_users
   has_many :owner_id
+  has_many :image, dependent: :destroy
   
   
   validates :email, presence: true

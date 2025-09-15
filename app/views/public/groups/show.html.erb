@@ -14,9 +14,10 @@
  <% if current_user.present? %>
   <td>
     <% if @group.users.include?(current_user) %>
-      <%= "既にこのグループに参加しています" %>
+    
+      <%= "このグループに参加しています" %>
       <br>
-       <td><%= @group.users.count %></td>
+       <td>グループ人数：<%= @group.users.count %>人</td>
     <%= link_to 'グループを抜ける', leave_group_path(@group), method: :post, data: { confirm: '本当にグループを抜けますか？' }, class: "btn btn-danger" %>
     <%= link_to 'メンバー一覧', members_group_path(@group) %>
   <% else %>

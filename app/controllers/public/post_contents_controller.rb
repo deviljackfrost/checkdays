@@ -24,9 +24,9 @@ class Public::PostContentsController < ApplicationController
      if current_user
       @post_content.user_id = current_user.id
      end
-     if @post_content.save
+      if @post_content.save
       redirect_to post_contents_path, notice: "投稿に成功しました"
-     else
+      else
       flash[:alert] = "投稿できませんでした入れ直してください"
       render :new
      end
@@ -55,7 +55,7 @@ private
 
 
 def post_content_params
-  params.require(:post_content).permit(:title, :caption, :content, :comment)
+  params.require(:post_content).permit(:title, :caption, :content, :comment, :image)
 end
 
 end

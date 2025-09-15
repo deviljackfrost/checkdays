@@ -5,26 +5,29 @@
 
 
 <content>
-    <%= form_with model: @post_content, url: post_content_path(@post_content.id), method: :patch do |f| %>
+<%= form_with model: @post_content, url: post_content_path(@post_content.id), method: :patch do |f| %>
+
 <br>
-<h2>タイトル</h2>
-<p><%= @post_content.title %></p>
+<h2><p><%= @post_content.user.name %></p></h2>
 <br>
-<h2>本文</h2>
-<p><%= @post_content.caption %></p>
+<h2><p><%= @post_content.title %></p></h2>
 <br>
-<h2>ユーザーネーム</h2>
- <p><%= @post_content.user.name %></p>
+<image>
+<% if @post_content.image.attached? %>
+  <%= image_tag @post_content.image, size: "300x300" %>
+<% else %>
+<% end %>
+</image>
+<h2><p><%= @post_content.caption %></p></h2>
+ 
    <br>
-   <h2>作成日時</h2>
+   <h2>投稿日</h2>
    <p><%= @post_content.created_at.strftime('%Y-%m-%d %H:%M') %></p>
-    <br>
 <% end %>
   <% if @post_content.user == current_user %> 
  <%= link_to "編集", edit_post_content_path(@post_content) %>
-   <%= link_to "削除", post_content_path(@post_content), method: :delete %>
+ <%= link_to "削除", post_content_path(@post_content), method: :delete, "data-confirm" => "本当に削除しますか？" %>
    <% end %>
-   <br>
 </content>
 
 
@@ -49,15 +52,15 @@
   <%= paginate @post_comments %>
 </div>
     <br>
-<div>
+<comment_up>
   <% if current_user.guest? %>
     <% else %>
   <%= form_with model: [@post_content, @post_comment] do |f| %>
     <%= f.text_area :comment, rows: '5', placeholder: "コメント" %>
-    <%= f.submit "入力する送信" %>
+    <%= f.submit "コメント送信" %>
   <% end %>
     <% end %>
-</div>
+</comment_up>
 
  <%= form_with model: @post_content, url: post_content_path(@post_content.id), method: :patch do |f| %>
  

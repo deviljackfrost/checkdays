@@ -33,13 +33,21 @@ header {
 
 content {
     display: flex;
-    justify-content: space-around;
-    width: 80%;
     flex-direction: column;
+    justify-content: space-around;
+    width: 70%;
     border: 2px solid #000;
     margin: 10px;
     padding: 10px;
    background: linear-gradient(#FFFFFF, #00FFFF);
+}
+
+comment_up {  
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 10px;
+    padding: 5px;
 }
 
 div1 {  
@@ -47,19 +55,24 @@ div1 {
     flex-direction: column;
     width: 80%;
     margin: 10px;
+    padding: 5px;
     border: 2px solid #000;
 }
-
-ul {  
-    display: flex;
-    flex-direction: row;
-}
-
 
 li {  
     display: flex;
     flex-direction: row;
     margin: 20px;
+}
+
+member {  
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid #000;
+    background: linear-gradient(#FFFFFF, #dda0dd);
 }
 
 
@@ -130,9 +143,7 @@ group_item {
 }
 
 .new-mark {
-    
-     background: linear-gradient(#FFFFFF, #FF0000);
-     
+     color: red;
 }
 
 .name {
@@ -159,5 +170,32 @@ group_item {
     flex-direction: column;
     border: 2px solid #000;
     margin: 10px;
+    padding: 5px;
     background: linear-gradient(#FFFFFF, #00FF00);
 }
+
+    table.member_content {
+      width: 90%;
+      border-collapse: collapse;
+      border-spacing: 0;
+       background: linear-gradient(#FFFFFF, #00FF00);
+    }
+
+    table.member_content thead {
+      text-align: center;
+    }
+
+    table.member_content th {
+      border-width: 1px;
+      padding: 10px;
+      border-style: solid;
+      border-color: #aaa;
+    }
+
+    table.member_content td {
+      border-width: 1px;
+      padding: 10px;
+      border-style: solid;
+      border-color: #aaa;
+
+    }
