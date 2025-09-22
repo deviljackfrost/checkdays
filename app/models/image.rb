@@ -1,6 +1,6 @@
 class Image < ApplicationRecord
   has_one_attached :image  
-  belongs_to :user
+  belongs_to :user, optional: true
   belongs_to :post_content
   belongs_to :post_comment
   

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2025_09_15_082146) do
+ActiveRecord::Schema.define(version: 2025_09_22_022138) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -75,6 +75,8 @@ ActiveRecord::Schema.define(version: 2025_09_15_082146) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "post_content_id"
+    t.string "user_id"
+    t.integer "post_comment_id"
   end
 
   create_table "post_comments", force: :cascade do |t|
@@ -83,6 +85,7 @@ ActiveRecord::Schema.define(version: 2025_09_15_082146) do
     t.integer "post_content_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "image"
   end
 
   create_table "post_contents", force: :cascade do |t|
@@ -90,6 +93,7 @@ ActiveRecord::Schema.define(version: 2025_09_15_082146) do
     t.string "caption"
     t.integer "user_id"
     t.string "content"
+    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -102,6 +106,7 @@ ActiveRecord::Schema.define(version: 2025_09_15_082146) do
     t.datetime "remember_created_at"
     t.string "name"
     t.integer "user_id"
+    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true

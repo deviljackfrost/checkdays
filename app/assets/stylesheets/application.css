@@ -35,7 +35,6 @@ content {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: 70%;
     border: 2px solid #000;
     margin: 10px;
     padding: 10px;
@@ -80,6 +79,17 @@ post {
     display: flex;
     flex-direction: column;
     width: 100%;
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid #000;
+    background: linear-gradient(#FFFFFF, #dda0dd);
+}
+
+post_caption {  
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    white-space: pre-wrap;
     margin: 10px;
     padding: 10px;
     border: 2px solid #000;
@@ -132,6 +142,17 @@ group_item {
     flex-direction: column;
 }
 
+user_edit {
+    display: flex;
+    padding: 10px;
+    height: 90%;
+    margin: 10px;
+    width: auto;
+    border: 2px solid #000;
+    justify-content: space-evenly;
+    flex-direction: column;
+    background: linear-gradient(#FFFFFF, #00FFFF);
+}
 .comment {
     display: flex;
     justify-content: space-around;

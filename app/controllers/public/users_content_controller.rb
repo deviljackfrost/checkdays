@@ -2,10 +2,6 @@ class Public::UsersContentController < ApplicationController
   def new
      @user = current_user
   end
-  
-  def mypage
-     @user = current_user
-  end
 
   def show
      @user = User.find(params[:id])
@@ -24,7 +20,8 @@ class Public::UsersContentController < ApplicationController
   end
 
   def update
-   @user = current_user
+   @current_user = current_user
+   @user = User.find(params[:id])
    if @user.update(user_params)
        flash[:notice] = "登録を変更しました"
        redirect_to users_content_path(@user)
@@ -44,7 +41,7 @@ class Public::UsersContentController < ApplicationController
    private
    
   def user_params
-    params.require(:user).permit(:name, :email, :encrypted_password, :image)
+    params.require(:user).permit(:name, :email, :encrypted_password, :images)
   end
 
 end

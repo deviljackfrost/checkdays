@@ -8,9 +8,9 @@
 <%= form_with model: @post_content, url: post_content_path(@post_content.id), method: :patch do |f| %>
 
 <br>
-<h2><p><%= @post_content.user.name %></p></h2>
+<h2><%= @post_content.user.name %></h2>
 <br>
-<h2><p><%= @post_content.title %></p></h2>
+<h2><%= @post_content.title %></h2>
 <br>
 <image>
 <% if @post_content.image.attached? %>
@@ -18,7 +18,7 @@
 <% else %>
 <% end %>
 </image>
-<h2><p><%= @post_content.caption %></p></h2>
+<h2><post_caption><%= @post_content.caption %></post_caption></h2>
  
    <br>
    <h2>投稿日</h2>
@@ -36,6 +36,12 @@
   <p>コメント件数：<%= @post_content.post_comments.count %></p>
   <% @post_content.post_comments.page(params[:page]).per(5).order(created_at: :desc).each do |post_comment| %>
   <div1>
+    <image>
+  <% if post_comment.image.attached? %>
+    <%= image_tag post_comment.image, size: "300x300" %>
+  <% else %>
+  <% end %>
+   </image>
     ユーザー：<%= post_comment.user.name %>
     <div class = "comment_content" ><%= post_comment.comment %></div>
     <div class = "time" ><%= post_comment.created_at.strftime('%Y-%m-%d %H:%M') %></div>
@@ -56,7 +62,9 @@
   <% if current_user.guest? %>
     <% else %>
   <%= form_with model: [@post_content, @post_comment] do |f| %>
-    <%= f.text_area :comment, rows: '5', placeholder: "コメント" %>
+    <h4>画像</h4>
+    <%= f.file_field :image, accept: "image/*" %>
+    <div><%= f.text_area :comment, rows: '5', placeholder: "コメント" %></div>
     <%= f.submit "コメント送信" %>
   <% end %>
     <% end %>

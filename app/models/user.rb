@@ -3,6 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+         
+  has_one_attached :images
   
   
   has_many :post_contents, dependent: :destroy 
@@ -17,6 +19,7 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :name, presence: true
   validates :encrypted_password, presence: true
+  validates :image, presence: false
   
   def self.looks(search, word)
     if search == "partial_match"

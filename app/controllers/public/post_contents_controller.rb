@@ -13,8 +13,7 @@ class Public::PostContentsController < ApplicationController
   def show
     @post_content = PostContent.find(params[:id])
     @post_comment = PostComment.new
-    @comment = PostComment.all
-    @post_comments = PostComment.page(params[:page])
+    @post_comments = @post_content.post_comments.page(params[:page]).includes(:user)
   end
   
   

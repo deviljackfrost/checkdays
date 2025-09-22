@@ -3,6 +3,11 @@
 <div>
   <%= flash[:notice] %>
 </div>
+<% if @user.images.attached? %>
+  <%= image_tag @user.images, size: "100x100" %>
+<% else %>
+   <%= image_tag 'no_image', size: "100x100" %>
+<% end %>
 
 <h2>名前</h2>
 <p><%= @user.name %></p>

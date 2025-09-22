@@ -6,10 +6,12 @@
 
 
 <%= form_with model: @user, url: users_content_path(@user.id), method: :patch do |f| %>
-
+<user_edit>
+  <h4>画像</h4>
+  <%= f.file_field :images, accept: "image/*" %>
+  
   <h4>名前</h4>
   <%= f.text_field :name %>
-  
   
     <h4>メールアドレス</h4>
   <%= f.text_field :email %>
@@ -27,3 +29,4 @@
   </delete>
   
 <% end %>
+</user_edit>

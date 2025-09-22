@@ -2,6 +2,7 @@ class Public::PostCommentsController < ApplicationController
 
   def show
     @post_comment = PostComment.find(params[:id])  
+    @post_content = PostContent.find(params[:id])
   end
 
  def create
@@ -44,7 +45,7 @@ class Public::PostCommentsController < ApplicationController
   private
   
 def post_comment_params
-  params.require(:post_comment).permit(:title, :caption, :content, :comment, :id, :post_content_id)
+  params.require(:post_comment).permit(:title, :caption, :content, :comment, :post_content_id, :image)
 end
 
 
