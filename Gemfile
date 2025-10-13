@@ -49,6 +49,8 @@ group :development do
   gem 'spring'
 end
 
+gem 'concurrent-ruby', '1.3.4'
+
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
@@ -69,9 +71,9 @@ end
 
 gem "net-smtp"
 gem "net-pop"
+gem "net-imap"
 
 gem 'kaminari'
 gem 'bootstrap4-kaminari-views'
 
 gem 'ransack'
-
