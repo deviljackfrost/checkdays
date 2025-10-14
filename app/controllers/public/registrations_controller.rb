@@ -2,6 +2,10 @@
 
 class Public::RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_parameters
+  
+  def edit
+    @user = current_user
+  end
 
   def update
    @user = current_user
@@ -27,7 +31,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   
    
   def user_params
-    params.require(:user).permit(:name, :email, :encrypted_password)
+    params.require(:user).permit(:name, :email, :password, :encrypted_password, :password_confirmation)
   end
 
   # before_action :configure_sign_up_params, only: [:create]
