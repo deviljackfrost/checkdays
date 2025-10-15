@@ -27,7 +27,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   
    
   def user_params
-    params.require(:user).permit(:name, :email, :encrypted_password)
+    params.require(:user).permit(:name, :email, :encrypted_password, :password, :password_confirmation)
   end
 
   # before_action :configure_sign_up_params, only: [:create]
